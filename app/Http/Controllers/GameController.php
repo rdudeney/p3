@@ -28,18 +28,21 @@ class GameController extends Controller
      */
     public function processInput(Request $request)
     {
+        $request->validate([
+            'type' => 'required',
+            'repetitions' => 'required|digits_between:2,4',
+            'guess' => 'required|digits_between:0,3'
+        ]);
 
         # Parameter confirms whether to change or stay
         $type = $request->input('type');
         $repetitions = $request->input('repetitions');
         $guess = $request->input('guess');
 
-        if ($type && $repetitions && $guess)
-        {
-            $num_correct = $this->process($type, $repetitions);
-            $percentage = ($num_correct / $repetitions) * 100;
-            $response = $this->respond($guess, $num_correct);
-        }
+        $num_correct = $this->process($type, $repetitions);
+        $percentage = ($num_correct / $repetitions) * 100;
+        $response = $this->respond($guess, $num_correct);
+
 
         return redirect('/')->with([
             'type' => $type,

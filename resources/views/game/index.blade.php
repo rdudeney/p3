@@ -3,7 +3,6 @@
 @section('content')
 
     <div class='container'>
-
         <h1>Monty Hall Game Show</h1>
         <table>
             <thead>
@@ -43,7 +42,7 @@
                         <label>
                             <input type='radio'
                                    name='type'
-                                   value='change' <?php if (isset($type) and $type == 'change') echo 'checked' ?>> Change
+                                   value='change' @if(old('type') == 'change') {{'checked'}} @endif> Change
                         </label>
                     </div>
                 </div>
@@ -53,7 +52,7 @@
                         <label>
                             <input type='radio'
                                    name='type'
-                                   value='stay' <?php if (isset($type) and $type == 'stay') echo 'checked' ?>> Stay
+                                   value='stay' @if(old('type') == 'stay') {{'checked'}} @endif> Stay
                         </label>
                     </div>
                 </div>
@@ -66,10 +65,10 @@
                 <div class='col-15'>
                     <select name='repetitions' id='repetitions'>
                         <option value='choose'>Choose one...</option>
-                        <option value='50'<?php if (isset($repetitions) and $repetitions == '50') echo 'selected' ?>>50</option>
-                        <option value='100' <?php if (isset($repetitions) and $repetitions == '100') echo 'selected'; ?>>100</option>
-                        <option value='500' <?php if (isset($repetitions) and $repetitions == '500') echo 'selected' ?>>500</option>
-                        <option value='1000' <?php if (isset($repetitions) and $repetitions == '1000') echo 'selected' ?>>1000</option>
+                        <option value='50' @if(old('repetitions') == '50') {{'selected'}} @endif>50</option>
+                        <option value='100' @if(old('repetitions') == '100') {{'selected'}} @endif>100</option>
+                        <option value='500' @if(old('repetitions') == '500') {{'selected'}} @endif>500</option>
+                        <option value='1000' @if(old('repetitions') == '1000') {{'selected'}} @endif>1000</option>
                     </select>
                 </div>
             </div>
@@ -79,29 +78,30 @@
                     <label>Guess how many times the same choice would be right, any number 1 - 999:</label>
                 </div>
                 <div class='col-15'>
-                    <input type='text' name='guess' size='4' value='<?= $guess ?? ' ' ?>'>
+                    <input type='text' name='guess' size='4' value='{{old('guess') ?? ' ' }}'>
                 </div>
             </div>
 
             <input type='submit' class='submit' value='Get Answer'>
         </form>
 
-        <?php if ($num_correct != null): ?>
-        <div class='alert alert-success' role='alert'>
-            By making the choice to <strong><?= $type ?></strong> you would have chosen the prize door
-            <strong><?= $num_correct ?></strong> times out of <strong><?= $repetitions ?></strong> chances, or
-            <strong><?= $percentage ?>%</strong>.
-        </div>
-        <div class='alert alert-primary' role='alert'>
-            You guessed <strong><?= $guess ?></strong>. <?= $response ?>
-        </div>
-        <div class='alert alert-warning' role='alert'>
-            Try changing your choices and see what results you get! To learn more about the Monty Hall
-            problem click <a target='_blank' href='https://en.wikipedia.org/wiki/Monty_Hall_problem'>here</a>.
-        </div>
-        <?php endif ?>
-
+        @if(count($errors) == 0)
+            <div class='alert alert-success' role='alert'>
+                By making the choice to <strong>{{$type}}</strong> you would have chosen the prize door
+                <strong>{{$num_correct}}</strong> times out of <strong>{{$repetitions}}</strong> chances, or
+                <strong>{{$percentage}}%</strong>.
+            </div>
+            <div class='alert alert-primary' role='alert'>
+                You guessed <strong>{{$guess}}</strong>. {{$response}}
+            </div>
+            <div class='alert alert-warning' role='alert'>
+                Try changing your choices and see what results you get! To learn more about the Monty Hall
+                problem click <a target='_blank' href='https://en.wikipedia.org/wiki/Monty_Hall_problem'>here</a>.
+            </div>
+        @else
+            <div class='alert alert-danger'>
+                Please correct the errors above.
+            </div>
+        @endif
     </div>
-
-
 @endsection
