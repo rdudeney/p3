@@ -58,6 +58,10 @@
                 </div>
             </fieldset>
 
+            @if($errors->get('type'))
+                <div class='alert alert-danger'>{{ $errors->first('type') }}</div>
+            @endif
+
             <div class='row'>
                 <div class='col-15'>
                     <label>Choose how many times to repeat this same choice:</label>
@@ -73,6 +77,10 @@
                 </div>
             </div>
 
+            @if($errors->get('repetitions'))
+                <div class='alert alert-danger'>{{ $errors->first('repetitions') }}</div>
+            @endif
+
             <div class='row'>
                 <div class='col-15'>
                     <label>Guess how many times the same choice would be right, any number 1 - 999:</label>
@@ -82,10 +90,14 @@
                 </div>
             </div>
 
+            @if($errors->get('guess'))
+                <div class='alert alert-danger'>{{ $errors->first('guess') }}</div>
+            @endif
+
             <input type='submit' class='submit' value='Get Answer'>
         </form>
 
-        @if(count($errors) == 0)
+        @if($num_correct != null)
             <div class='alert alert-success' role='alert'>
                 By making the choice to <strong>{{$type}}</strong> you would have chosen the prize door
                 <strong>{{$num_correct}}</strong> times out of <strong>{{$repetitions}}</strong> chances, or
@@ -97,10 +109,6 @@
             <div class='alert alert-warning' role='alert'>
                 Try changing your choices and see what results you get! To learn more about the Monty Hall
                 problem click <a target='_blank' href='https://en.wikipedia.org/wiki/Monty_Hall_problem'>here</a>.
-            </div>
-        @else
-            <div class='alert alert-danger'>
-                Please correct the errors above.
             </div>
         @endif
     </div>

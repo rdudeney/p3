@@ -125,8 +125,15 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'type' => [
+            'required' => 'Please choose either to Change or Stay.'
+        ],
+        'repetitions' => [
+            'digits_between' => 'Please choose number of repetitions from menu.'
+        ],
+        'guess' => [
+            'required' => 'Please enter a guess.',
+            'digits_between' => 'Please enter a number between 1 and 999.',
         ],
     ],
 
