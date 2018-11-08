@@ -15,3 +15,6 @@
 Route::get('/', 'GameController@index');
 Route::get('/processInput', 'GameController@processInput');
 
+Route::view('/winner', 'winner');
+
+

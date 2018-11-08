@@ -103,11 +103,7 @@
                 <strong>{{$percentage}}%</strong>.
             </div>
             <div class='alert alert-primary' role='alert'>
-                You guessed <strong>{{$guess}}</strong>. {{$response}}
-            </div>
-            <div class='alert alert-warning' role='alert'>
-                Try changing your choices and see what results you get! To learn more about the Monty Hall
-                problem click <a target='_blank' href='https://en.wikipedia.org/wiki/Monty_Hall_problem'>here</a>.
+                You guessed <strong>{{$guess}}</strong>. {{$response}} Try changing your choices and see what results you get!
             </div>
         @endif
     </div>

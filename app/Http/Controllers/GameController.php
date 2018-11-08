@@ -29,6 +29,15 @@ class GameController extends Controller
         ]);
     }
 
+    public function reset(Request $request)
+    {
+        return view('game.index')->with([
+            'type' => $request->session()->get(null),
+            'repetitions' => $request->session()->get( null),
+            'guess' => $request->session()->get( null),
+        ]);
+    }
+
     /*
      * @param Request $request
      * @return Index view
@@ -55,7 +64,13 @@ class GameController extends Controller
         $percentage = ($num_correct / $repetitions) * 100; # Confirm percentage of number correct
         $response = $this->respond($guess, $num_correct); # Confirm response
 
-        # return to the index with updated values
+        # Go to winner view if the user guesses the number correct
+        if ($response == "Got it")
+        {
+            return redirect('/winner');
+        }
+
+        # Else return to the index view
         return redirect('/')->with([
             'type' => $type,
             'repetitions' => $repetitions,
@@ -79,9 +94,9 @@ class GameController extends Controller
     {
         $difference = abs($num_correct - $guess);
 
-        if ($difference < 10)
+        if ($difference == 0)
         {
-            $response = "Great guess!";
+            $response = "Got it";
             return $response;
         } elseif ($difference >= 10 and $difference < 50 ){
             $response = "Very close!";
