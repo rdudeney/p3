@@ -29,15 +29,6 @@ class GameController extends Controller
         ]);
     }
 
-    public function reset(Request $request)
-    {
-        return view('game.index')->with([
-            'type' => $request->session()->get(null),
-            'repetitions' => $request->session()->get( null),
-            'guess' => $request->session()->get( null),
-        ]);
-    }
-
     /*
      * @param Request $request
      * @return Index view
