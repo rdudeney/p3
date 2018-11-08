@@ -42,7 +42,7 @@
                         <label>
                             <input type='radio'
                                    name='type'
-                                   value='change' @if(old('type') == 'change') {{'checked'}} @endif> Change
+                                   value='change' @if(old('type', $type) == 'change') {{'checked'}} @endif> Change
                         </label>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         <label>
                             <input type='radio'
                                    name='type'
-                                   value='stay' @if(old('type') == 'stay') {{'checked'}} @endif> Stay
+                                   value='stay' @if(old('type', $type) == 'stay') {{'checked'}} @endif> Stay
                         </label>
                     </div>
                 </div>
@@ -69,10 +69,10 @@
                 <div class='col-15'>
                     <select name='repetitions' id='repetitions'>
                         <option value='choose'>Choose one...</option>
-                        <option value='50' @if(old('repetitions') == '50') {{'selected'}} @endif>50</option>
-                        <option value='100' @if(old('repetitions') == '100') {{'selected'}} @endif>100</option>
-                        <option value='500' @if(old('repetitions') == '500') {{'selected'}} @endif>500</option>
-                        <option value='1000' @if(old('repetitions') == '1000') {{'selected'}} @endif>1000</option>
+                        <option value='50' @if(old('repetitions', $repetitions) == '50') {{'selected'}} @endif>50</option>
+                        <option value='100' @if(old('repetitions', $repetitions) == '100') {{'selected'}} @endif>100</option>
+                        <option value='500' @if(old('repetitions', $repetitions) == '500') {{'selected'}} @endif>500</option>
+                        <option value='1000' @if(old('repetitions', $repetitions) == '1000') {{'selected'}} @endif>1000</option>
                     </select>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                     <label>Guess how many times the same choice would be right, any number 1 - 999:</label>
                 </div>
                 <div class='col-15'>
-                    <input type='text' name='guess' size='4' value='{{old('guess') ?? ' ' }}'>
+                    <input type='text' name='guess' size='4' value='{{old('guess', $guess) ?? ' ' }}'>
                 </div>
             </div>
 

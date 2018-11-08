@@ -133,7 +133,8 @@ return [
         ],
         'guess' => [
             'required' => 'Please enter a guess.',
-            'digits_between' => 'Please enter a number between 1 and 999.',
+            'integer' => 'Please enter an integer between 1 and 999.',
+            'between' => 'Please enter a integer between 1 and 999.',
         ],
     ],
 

@@ -31,7 +31,7 @@ class GameController extends Controller
         $request->validate([
             'type' => 'required',
             'repetitions' => 'required|digits_between:2,4',
-            'guess' => 'required|digits_between:0,3'
+            'guess' => 'required|integer|between:1,999'
         ]);
 
         # Parameter confirms whether to change or stay
