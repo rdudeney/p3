@@ -103,7 +103,8 @@
                 <strong>{{$percentage}}%</strong>.
             </div>
             <div class='alert alert-primary' role='alert'>
-                You guessed <strong>{{$guess}}</strong>. {{$response}} Try changing your choices and see what results you get!
+                You guessed
+                <strong>{{$guess}}</strong>. {{$response}} Try changing your choices and see what results you get!
             </div>
         @endif
     </div>

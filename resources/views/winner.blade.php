@@ -21,8 +21,10 @@
             </tbody>
         </table>
         <div class='alert alert-warning' role='alert'>
-            You Win! Did you notice that if you chose to <strong>Change</strong> doors instead of <strong>Stay</strong>, you more
-            consistently chose the correct door? That's the trick of the <strong>Monty Hall Game</strong>. To learn more click
+            You Win! Did you notice that if you chose to <strong>Change</strong> doors instead of
+            <strong>Stay</strong>, you more
+            consistently chose the correct door? That's the trick of the
+            <strong>Monty Hall Game</strong>. To learn more click
             <a target='_blank' href='https://en.wikipedia.org/wiki/Monty_Hall_problem'> here</a>,
             or else <a href='/'>Play Again</a>.
         </div>
