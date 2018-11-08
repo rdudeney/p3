@@ -10,6 +10,13 @@ class GameController extends Controller
 
     private $TOTAL = 6; # Total constant of all door values
 
+    /*
+     * @param Request $request
+     * @return Index view
+     *
+     * Method takes the $request variable and returns index view along with request values
+     */
+
     public function index(Request $request)
     {
         return view('game.index')->with([
@@ -22,28 +29,33 @@ class GameController extends Controller
         ]);
     }
 
-    /**
+    /*
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return Index view
+     *
+     * Method takes the $request variable and processes the input values, returning to the index view with the
+     * updated $request values
      */
     public function processInput(Request $request)
     {
+        # Validate the inputs, otherwise return to index view
         $request->validate([
             'type' => 'required',
             'repetitions' => 'required|digits_between:2,4',
             'guess' => 'required|integer|between:1,999'
         ]);
 
-        # Parameter confirms whether to change or stay
+        # Update local variables to reflect inputs
         $type = $request->input('type');
         $repetitions = $request->input('repetitions');
         $guess = $request->input('guess');
 
-        $num_correct = $this->process($type, $repetitions);
-        $percentage = ($num_correct / $repetitions) * 100;
-        $response = $this->respond($guess, $num_correct);
+        # Process the local variables
+        $num_correct = $this->process($type, $repetitions); # Confirm number correct
+        $percentage = ($num_correct / $repetitions) * 100; # Confirm percentage of number correct
+        $response = $this->respond($guess, $num_correct); # Confirm response
 
-
+        # return to the index with updated values
         return redirect('/')->with([
             'type' => $type,
             'repetitions' => $repetitions,
@@ -60,7 +72,7 @@ class GameController extends Controller
     * @return string
 
     * Method compares the user guess to the results and assigns response to be passed to
-    *user
+    * user
     */
 
     private function respond($guess, $num_correct)
