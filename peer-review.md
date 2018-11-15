@@ -23,8 +23,8 @@ The user tried the following:
 + Submitting letters and/or symbols: The program did not allow, apart from the decimal point. Repeated decimal points elicited a pop up error message requesting a number be entered in form.  
 + Submitting with a large number: values outside parameters disappeared, and the field turned red.
 + The form automatically removed zeros from the front and back of the number
-+ The Fallback route returned the user to the index page, which is a nice touch.
-+ Reverting to the default formatting if incorrect information is entered into the fields is also a nice touch. 
++ The Fallback route returned the user to the index page, and did not display and error page, which was a nice touch.
++ Reverting to the default formatting if incorrect information is entered into the form fields is also a nice touch. 
 
 ## 3. Code: Routes
 
@@ -38,8 +38,8 @@ Template inheritance is used and there are no separation of concern issues. Noth
 
 There are no inconsistencies between the code and the course notes generally. The code is well organized. 
 
-This user did not immediately understand what was going on with the code. More detailed comments and at least one set of more descriptive variable names would have assisted this user in understanding the code. The user was able to understand the inverse relationship between the Z-position and the Scale by observing the data displayed on the interface. This was useful. This user would have benefited from more explanation.
+This user did not immediately understand the code. More detailed comments and at least one set of descriptive variable names would have assisted this user in understanding the code. The user was able to understand the inverse relationship between the Z-position and the Scale by observing the data displayed on the interface. This was helpful. This user would have benefited from more explanation.
 
 
 ## 6. Misc
-The programmer clearly has great understanding of Parallax scrolling, and great skill in creating a useful demonstration interface. 
+The programmer clearly has great understanding of Parallax scrolling, and great skill in creating an effective demonstration interface. 
