@@ -11,7 +11,7 @@ The interface is very impressive. The design of the background is vibrant and ey
 
 It took this user a while to understand how to control the graphic effects. A more detailed description of the Parallax effect would have been helpful, outlining, for example, that the effect is driven by the inverse relationship between the Z-position of the background and it's Scale. The description refers to "manipulating the perspective", but the user would have benefited from a more detailed explanation.
 
-It may have been useful as well to give the user control over other aspects of the interface. For example, the z values and top position are calculated by the program, not inputted by the user. If user could have made the top position the same for all the backgrounds, then observed as each passed the other as the interface scrolled down, this may have illustrated the Parallax scrolling more effectively. 
+It may have been useful as well to give the user control over other aspects of the interface. For example, the z values and top position are calculated by the program, not inputted by the user. If user could have made the top position the same for all the backgrounds, then observed as each passed the other as the interface scrolled down, this may have illustrated Parallax scrolling more effectively. 
 
 ## 2. Functional testing
 
@@ -38,8 +38,8 @@ Template inheritance is used and there are no separation of concern issues. Noth
 
 There are no inconsistencies between the code and the course notes generally. The code is well organized. 
 
-This user did not immediately understand what was going on with the code. More detailed comments and at least one set of more descriptive variable names would have assisted this user in understanding the code. The user was able to understand the inverse relationship between the Z-position and the Scale by observing the data displayed on the interface. This was useful, but this user would have benefited from more explanation.
+This user did not immediately understand what was going on with the code. More detailed comments and at least one set of more descriptive variable names would have assisted this user in understanding the code. The user was able to understand the inverse relationship between the Z-position and the Scale by observing the data displayed on the interface. This was useful. This user would have benefited from more explanation.
 
 
 ## 6. Misc
-This user really enjoyed this app. The programmer clearly has great understanding of the Parallax scrolling, and great skill in creating a useful demonstration interface. 
+The programmer clearly has great understanding of Parallax scrolling, and great skill in creating a useful demonstration interface. 
